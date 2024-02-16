@@ -63,7 +63,11 @@ class ProjectProject(models.Model):
         # Do not add any domain when user just clicked on search widget
         if not (name == "" and operator == "ilike"):
             # The dangling | is needed to combine with the domain added by super()
-            args = (args or []) + ["|", ("sequence_code", operator, name)]
+            args = (args or []) + [
+                "|",
+                ("sequence_code", operator, name),
+                ("name", operator, name),
+            ]
         return super().name_search(name, args, operator, limit)
 
     @api.model_create_multi

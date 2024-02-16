@@ -116,16 +116,19 @@ class TestPullRequestState(TransactionCase):
                 "name": "Test Task 1",
                 "project_id": self.project_1.id,
                 "pr_uri": "https://@my.pr.uri/pr",
+                "pr_state": "draft",
             },
             {
                 "name": "Test Task 2",
                 "project_id": self.project_2.id,
                 "pr_uri": "https://@my.pr.uri/pr",
+                "pr_state": "open",
             },
             {
                 "name": "Test Task 3",
                 "project_id": self.project_3.id,
                 "pr_uri": "https://@my.pr.uri/pr",
+                "pr_state": "closed",
             },
         ]
         test_tasks = self.Task.create(test_tasks_data)
